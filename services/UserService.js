@@ -181,7 +181,7 @@ const bulkCreateUsers = async (users) => {
 
 const find = async (req) => {
 
-    console.log("req:", req)
+    //console.log("req:", req)
     const parametrosEncontrados = {}
     const filterUsers = []
     const usersdb = await db.User.findAll({})
@@ -197,7 +197,7 @@ const find = async (req) => {
       parametrosEncontrados.status = req.status.toLowerCase()
     }
   
-    console.log(parametrosEncontrados)
+    //console.log(parametrosEncontrados)
   
     let fechaB = new Date(Date.UTC())
     let fechaA = new Date(Date.UTC())
@@ -212,8 +212,8 @@ const find = async (req) => {
     }
     let logB = []
     let logA = []
-    console.log("Fecha Antes:", fechaB)
-    console.log("Fecha Despues:", fechaA)
+    //console.log("Fecha Antes:", fechaB)
+    //console.log("Fecha Despues:", fechaA)
     sessionFilter.forEach(session => {
       if (fechaB.getTime() > session.createdAt.getTime()) {
         logB.push(session.id_user)
@@ -224,10 +224,10 @@ const find = async (req) => {
     })
     const logBset = new Set(logB)
     logB = Array.from(logBset);
-    console.log("logB: ", logB)
+    //console.log("logB: ", logB)
     const logAset = new Set(logA)
     logA = Array.from(logAset);
-    console.log("logA: ", logA)
+    //console.log("logA: ", logA)
   
     let usercount = 0
     users.forEach(user => {
